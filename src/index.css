@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* 1rem = 16px */
+    @apply text-[100%];
+  }
+
+  body {
+    @apply bg-neutral-100 font-sans text-white;
+  }
+
+  h1 {
+    @apply font-serif text-[3rem] font-bold;
+  }
+
+  h2 {
+    @apply font-serif text-[2.4rem] font-bold;
+  }
+
+  h3 {
+    @apply font-serif text-[1.94rem] font-semibold;
+  }
+
+  h4 {
+    @apply font-serif text-[1.56rem] font-semibold;
+  }
+
+  h5 {
+    @apply font-serif text-[1.25rem] font-semibold;
+  }
+}
+
+@layer components {
+  .display-text {
+    @apply font-serif text-[3.5rem];
+  }
+
+  .button-text {
+    @apply font-sans text-[0.8rem] font-bold;
+  }
+
+  .button-medium {
+    @apply py-3 px-6 rounded font-sans text-[0.8rem] font-bold;
+  }
+
+  .button-small {
+    @apply py-1 px-2 rounded font-sans text-[0.8rem] font-bold;
+  }
+
+  .small-text {
+    @apply font-sans text-[0.75rem];
+  }
+
+  .text-orientation {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+}
