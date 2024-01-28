@@ -1,7 +1,7 @@
 import Button from "../UI/Button";
 import ArrowRightIcon from "../Icons/ArrowRight";
 
-function HighlightList({ item, index }) {
+function SliderList({ item, index }) {
   return (
     <>
       <div className="flex flex-col gap-6">
@@ -16,10 +16,8 @@ function HighlightList({ item, index }) {
         <h3 className="text-neutral-50">by {item.by}</h3>
       </div>
       <a href={item.url}>
-        <Button
-          className="button-medium text-white bg-primary-50"
-          text="Read more"
-        >
+        <Button className="button-medium text-white bg-primary-50">
+          Read more
           <ArrowRightIcon />
         </Button>
       </a>
@@ -27,4 +25,4 @@ function HighlightList({ item, index }) {
   );
 }
 
-export default HighlightList;
+export default SliderList;

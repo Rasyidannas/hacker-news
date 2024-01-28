@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import moment from "moment";
+import { useEffect } from "react";
 
 import Button from "./Button";
 import ArrowRightIcon from "../Icons/ArrowRight";
@@ -25,10 +24,11 @@ function ItemTop({ item, index }) {
       <a href={item.url}>
         <h3>{item.title}</h3>
       </a>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <p className="button-text text-neutral-70">by {item.by}</p>
         <a href={item.url}>
-          <Button className="button-small text-primary-50" text="Read more">
+          <Button className="button-small text-primary-50">
+            Read more
             <ArrowRightIcon />
           </Button>
         </a>

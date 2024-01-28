@@ -4,7 +4,6 @@ function Button({ className, text, children, onClick }) {
       className={`${className} button-text flex items-center gap-2`}
       onClick={onClick}
     >
-      {text}
       {children}
     </button>
   );

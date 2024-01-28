@@ -1,9 +1,9 @@
 import TopList from "./TopList";
-import HighlightList from "./HighlightList";
+import SliderList from "./SliderList";
 import Button from "../UI/Button";
 import { useEffect, useState } from "react";
 
-function Top({ items }) {
+function Highlight({ items }) {
   const [slideNav, setSildeNav] = useState(0);
 
   const slideNavHandler = (index) => {
@@ -19,8 +19,6 @@ function Top({ items }) {
     return () => clearInterval(intervalId);
   }, [slideNav]);
 
-  console.log(slideNav);
-
   return (
     <div className="flex gap-6 mt-12">
       {/* Render your loaded highlight items here */}
@@ -34,7 +32,7 @@ function Top({ items }) {
               key={item.id}
               className="flex flex-col justify-between flex-none w-full p-12"
             >
-              <HighlightList item={item} index={i} />
+              <SliderList item={item} index={i} />
             </div>
           ))}
         </div>
@@ -64,4 +62,4 @@ function Top({ items }) {
   );
 }
 
-export default Top;
+export default Highlight;

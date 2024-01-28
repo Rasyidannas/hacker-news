@@ -1,22 +1,29 @@
 import { defer, json, useLoaderData, Await } from "react-router-dom";
 import { Suspense } from "react";
-import Top from "../components/Top/Top";
+import Highlight from "../components/Cover/Highlight";
+import RecentList from "../components/Cover/RecentList";
 
 function HomePage() {
-  const { items } = useLoaderData();
+  const { news, shows } = useLoaderData();
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <Await rejectFallback={<p>Error loading data</p>} resolve={items}>
-        {(loadedItems) => <Top items={loadedItems} />}
-      </Await>
+      <div className="flex flex-col gap-6">
+        <Await resolve={news}>
+          {(loadedTopNews) => <Highlight items={loadedTopNews} />}
+        </Await>
+        <div className="w-full h-[1px] bg-neutral-80"></div>
+        <Await resolve={shows}>
+          {(loadRecentShow) => <RecentList items={loadRecentShow} />}
+        </Await>
+      </div>
     </Suspense>
   );
 }
 
 export default HomePage;
 
-// Fetch API
+// Fetch API Top 5 News
 async function loadTopNews() {
   const ids = await fetch(
     "https://hacker-news.firebaseio.com/v0/topstories.json"
@@ -29,8 +36,40 @@ async function loadTopNews() {
   const resIds = await ids.json();
   const top5Ids = resIds.slice(0, 5);
 
-  //get links with top 5 ids
+  //get info with top 5 ids
   const urlItems = top5Ids.map(async (id) => {
+    const url = `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw json({ message: "Could not fetch news." }, { status: 500 });
+    }
+
+    const item = await response.json();
+
+    return item;
+  });
+
+  const resItems = await Promise.all(urlItems);
+
+  return resItems;
+}
+
+// Fetch API Recent Show
+async function loadRecentShow() {
+  const ids = await fetch(
+    "https://hacker-news.firebaseio.com/v0/showstories.json"
+  );
+
+  if (!ids.ok) {
+    throw json({ message: "Could not fetch shows." }, { status: 500 });
+  }
+
+  const resIds = await ids.json();
+  const top3Ids = resIds.slice(0, 3);
+
+  //get info with top 3 ids
+  const urlItems = top3Ids.map(async (id) => {
     const url = `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
     const response = await fetch(url);
 
@@ -50,6 +89,7 @@ async function loadTopNews() {
 
 export function loader() {
   return defer({
-    items: loadTopNews(),
+    news: loadTopNews(),
+    shows: loadRecentShow(),
   });
 }
