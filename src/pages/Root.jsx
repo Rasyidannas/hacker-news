@@ -7,7 +7,7 @@ function RootLayout() {
     <>
       <main className="flex">
         <SideNav className="w-1/12" />
-        <section className="py-12 px-6 w-11/12">
+        <section className="pt-12 px-6 min-w-[70%] w-full flex flex-col">
           <Header />
           <Outlet />
         </section>

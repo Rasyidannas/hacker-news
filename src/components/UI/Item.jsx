@@ -3,7 +3,17 @@ import { useEffect } from "react";
 import Button from "./Button";
 import useTime from "../../hooks/use-time";
 
-function Item({ item }) {
+function extractDomainFromUrl(url) {
+  try {
+    const urlObject = new URL(url);
+    return urlObject.hostname;
+  } catch (error) {
+    console.error("Error extracting domain:", error);
+    return null;
+  }
+}
+
+function Item({ item, className }) {
   const time = item.time;
 
   const { formattedTime, inputTime } = useTime();
@@ -13,13 +23,10 @@ function Item({ item }) {
   }, [time]);
 
   const url = item.url;
-  const formattedUrl =
-    item.url[item.url.length - 1] === "/"
-      ? item.url.slice(8, item.url.length - 1)
-      : item.url.slice(8, item.url.length);
+  const formattedUrl = extractDomainFromUrl(url);
 
   return (
-    <div className="flex-1 flex flex-col pr-4 last:pr-0 border-r last:border-r-0 border-neutral-80">
+    <div className={`flex-1 flex flex-col border-neutral-80 ${className}`}>
       <div className="flex gap-1">
         <p className="small-text text-neutral-70">{item.score} points</p>
         <p className="small-text">-</p>

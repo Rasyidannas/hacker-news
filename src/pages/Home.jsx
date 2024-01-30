@@ -12,7 +12,7 @@ function HomePage() {
         <Await resolve={news}>
           {(loadedTopNews) => <Highlight items={loadedTopNews} />}
         </Await>
-        <div className="w-full h-[1px] bg-neutral-80"></div>
+        <div className="w-full h-[1px] border-b border-neutral-80"></div>
         <Await resolve={shows}>
           {(loadRecentShow) => <RecentList items={loadRecentShow} />}
         </Await>
@@ -25,16 +25,16 @@ export default HomePage;
 
 // Fetch API Top 5 News
 async function loadTopNews() {
-  const ids = await fetch(
+  const responseIds = await fetch(
     "https://hacker-news.firebaseio.com/v0/topstories.json"
   );
 
-  if (!ids.ok) {
+  if (!responseIds.ok) {
     throw json({ message: "Could not fetch news." }, { status: 500 });
   }
 
-  const resIds = await ids.json();
-  const top5Ids = resIds.slice(0, 5);
+  const ids = await responseIds.json();
+  const top5Ids = ids.slice(0, 5);
 
   //get info with top 5 ids
   const urlItems = top5Ids.map(async (id) => {

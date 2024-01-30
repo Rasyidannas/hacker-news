@@ -22,7 +22,7 @@ function Highlight({ items }) {
   return (
     <div className="flex gap-6 mt-12">
       {/* Render your loaded highlight items here */}
-      <div className="w-1/2 bg-secondary-90 overflow-x-hidden rounded-lg relative">
+      <div className="w-2/3 bg-secondary-90 overflow-x-hidden rounded-lg relative">
         <div
           className={`flex h-full transition-all`}
           style={{ transform: `translateX(${slideNav * -100}%)` }}

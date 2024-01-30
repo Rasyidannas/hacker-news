@@ -60,4 +60,12 @@
     writing-mode: vertical-rl;
     text-orientation: upright;
   }
+
+  .nav-link-active {
+    @apply text-primary-50 font-serif font-bold text-4xl;
+  }
+
+  .nav-link {
+    @apply text-neutral-70 font-serif font-bold text-4xl;
+  }
 }

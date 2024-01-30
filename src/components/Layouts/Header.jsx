@@ -21,8 +21,8 @@ const dayName = listDay[day];
 
 function Header() {
   return (
-    <div className="flex justify-between items-center">
-      <h5 className=" text-neutral-50 italic">
+    <div className="flex justify-between items-center ">
+      <h5 className=" text-neutral-50 italic font-normal">
         {dayName} {dates}/{formattedmonth}/{year}
       </h5>
       <TextField
