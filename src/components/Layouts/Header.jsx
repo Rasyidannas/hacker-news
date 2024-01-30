@@ -26,7 +26,7 @@ function Header() {
         {dayName} {dates}/{formattedmonth}/{year}
       </h5>
       <TextField
-        className="text-neutral-70"
+        className="text-white"
         input={{
           id: "search",
           type: "text",

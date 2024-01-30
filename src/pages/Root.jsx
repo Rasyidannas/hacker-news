@@ -12,6 +12,59 @@ function RootLayout() {
           <Outlet />
         </section>
       </main>
+      <footer className="button-text py-6 px-24 bg-secondary-90 flex justify-between">
+        <p className="text-neutral-70">
+          Design by <a href="https://github.com/Rasyidannas"></a>
+          <span className="text-white">Rasyid Annas</span>
+        </p>
+        <ul className="flex gap-6">
+          <li>
+            <a
+              href="https://news.ycombinator.com/newsguidelines.html"
+              className="button-small"
+            >
+              Guidelines
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://news.ycombinator.com/newsfaq.html"
+              className="button-small"
+            >
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://news.ycombinator.com/newsfaq.html"
+              className="button-small"
+            >
+              API
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://news.ycombinator.com/security.html"
+              className="button-small"
+            >
+              Security
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://news.ycombinator.com/security.html"
+              className="button-small"
+            >
+              Legal
+            </a>
+          </li>
+          <li>
+            <a href="https://news.ycombinator.com/" className="button-small">
+              Visit Original Link
+            </a>
+          </li>
+        </ul>
+      </footer>
     </>
   );
 }
