@@ -14,16 +14,16 @@ function extractDomainFromUrl(url) {
 }
 
 function Item({ item, className }) {
-  const time = item.time;
+  let formattedUrl;
+  const url = item.url;
+  if (url) formattedUrl = extractDomainFromUrl(url);
 
+  const time = item.time;
   const { formattedTime, inputTime } = useTime();
 
   useEffect(() => {
     inputTime(time);
-  }, [time]);
-
-  const url = item.url;
-  const formattedUrl = extractDomainFromUrl(url);
+  }, [time, url]);
 
   return (
     <div className={`flex-1 flex flex-col border-neutral-80 ${className}`}>
