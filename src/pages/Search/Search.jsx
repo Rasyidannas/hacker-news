@@ -11,8 +11,8 @@ import notFoundImage from "../../assets/not_found.svg";
 
 function SearchPage() {
   const { news } = useLoaderData();
-  const [searchParams, setSearchParams] = useSearchParams();
 
+  const [searchParams, setSearchParams] = useSearchParams();
   const searchValue = searchParams.get("query");
 
   return (
@@ -22,22 +22,28 @@ function SearchPage() {
           Search for <span className="italic">&quot;{searchValue}&quot;</span>
         </h2>
         <Await resolve={news}>
-          {(loadedNews) => <List items={loadedNews} className=" w-5/6" />}
+          {(loadedNews) => (
+            <>
+              <List items={loadedNews} className=" w-5/6" />
+              {/* This is for error or not found news */}
+              {!loadedNews.length && (
+                <div className="text-center flex flex-col items-center gap-12 w-80 mx-auto mt-24">
+                  <img src={notFoundImage} />
+                  <div className="flex flex-col gap-4">
+                    <h3>News Not Found</h3>
+                    <p className="text-neutral-70">
+                      Try refining your search or explore our popular categories
+                      below
+                    </p>
+                  </div>
+                  <a href="/" className="button-medium bg-primary-50">
+                    Back To News
+                  </a>
+                </div>
+              )}
+            </>
+          )}
         </Await>
-        {!news.length && (
-          <div className="text-center flex flex-col items-center gap-12 w-80 mx-auto mt-24">
-            <img src={notFoundImage} />
-            <div className="flex flex-col gap-4">
-              <h3>News Not Found</h3>
-              <p className="text-neutral-70">
-                Try refining your search or explore our popular categories below
-              </p>
-            </div>
-            <a href="/" className="button-medium bg-primary-50">
-              Back To News
-            </a>
-          </div>
-        )}
       </div>
     </Suspense>
   );
