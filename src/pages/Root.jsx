@@ -13,10 +13,11 @@ function RootLayout() {
         </section>
       </main>
       <footer className="button-text py-6 px-24 bg-secondary-90 flex justify-between">
-        <p className="text-neutral-70">
-          Design by <a href="https://github.com/Rasyidannas"></a>
-          <span className="text-white">Rasyid Annas</span>
-        </p>
+        <a href="https://github.com/Rasyidannas">
+          <p className="text-neutral-70">
+            Design by <span className="text-white">Rasyid Annas</span>
+          </p>
+        </a>
         <ul className="flex gap-6">
           <li>
             <a

@@ -1,5 +1,6 @@
 import TextField from "../UI/TextField";
 import SearchIcon from "../Icons/Search";
+import { Form } from "react-router-dom";
 
 const listDay = [
   "Monday",
@@ -25,16 +26,19 @@ function Header() {
       <h5 className=" text-neutral-50 italic font-normal">
         {dayName} {dates}/{formattedmonth}/{year}
       </h5>
-      <TextField
-        className="text-white"
-        input={{
-          id: "search",
-          type: "text",
-          placeholder: "Search...",
-        }}
-      >
-        <SearchIcon />
-      </TextField>
+      <Form method="get" action="/search">
+        <TextField
+          className="text-white"
+          input={{
+            id: "search",
+            type: "text",
+            placeholder: "Search...",
+            name: "query",
+          }}
+        >
+          <SearchIcon />
+        </TextField>
+      </Form>
     </div>
   );
 }

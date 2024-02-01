@@ -12,6 +12,7 @@ import ShowPage from "./pages/Show/Show";
 import RecentShowPage from "./pages/Show/RecentShow";
 import JobPage from "./pages/Job/Job";
 import LatestJob from "./pages/Job/LatestJob";
+import SearchPage, { loader as searchLoader } from "./pages/Search/Search";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         path: "/jobs",
         element: <JobPage />,
         children: [{ path: "/jobs/latestjob", element: <LatestJob /> }],
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
+        loader: searchLoader,
       },
     ],
   },
