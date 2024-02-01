@@ -7,6 +7,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import List from "../../components/List/List";
+import notFoundImage from "../../assets/not_found.svg";
 
 function SearchPage() {
   const { news } = useLoaderData();
@@ -23,6 +24,20 @@ function SearchPage() {
         <Await resolve={news}>
           {(loadedNews) => <List items={loadedNews} className=" w-5/6" />}
         </Await>
+        {!news.length && (
+          <div className="text-center flex flex-col items-center gap-12 w-80 mx-auto mt-24">
+            <img src={notFoundImage} />
+            <div className="flex flex-col gap-4">
+              <h3>News Not Found</h3>
+              <p className="text-neutral-70">
+                Try refining your search or explore our popular categories below
+              </p>
+            </div>
+            <a href="/" className="button-medium bg-primary-50">
+              Back To News
+            </a>
+          </div>
+        )}
       </div>
     </Suspense>
   );
