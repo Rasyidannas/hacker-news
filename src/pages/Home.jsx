@@ -2,12 +2,13 @@ import { defer, json, useLoaderData, Await } from "react-router-dom";
 import { Suspense } from "react";
 import Highlight from "../components/Cover/Highlight";
 import RecentList from "../components/Cover/RecentList";
+import SkeletonHome from "../components/Skeleton/Home";
 
 function HomePage() {
   const { news, shows } = useLoaderData();
 
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<SkeletonHome />}>
       <div className="flex flex-col gap-6">
         <Await resolve={news}>
           {(loadedTopNews) => <Highlight items={loadedTopNews} />}

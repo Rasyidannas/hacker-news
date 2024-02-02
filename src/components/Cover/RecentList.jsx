@@ -6,7 +6,7 @@ function RecentList({ items }) {
     <div className="flex flex-col gap-4 pb-6">
       <div className="flex items-center justify-between">
         <h2 className="text-secondary-50">Recent Show</h2>
-        <a href="/show">
+        <a href="/shows">
           <Button className="text-primary-50">See more</Button>
         </a>
       </div>

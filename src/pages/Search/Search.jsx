@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import List from "../../components/List/List";
 import notFoundImage from "../../assets/not_found.svg";
+import SkeletonItems from "../../components/Skeleton/Items";
 
 function SearchPage() {
   const { news } = useLoaderData();
@@ -16,18 +17,20 @@ function SearchPage() {
   const searchValue = searchParams.get("query");
 
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<SkeletonItems times={4} className="w-full" />}>
       <div className="mt-12">
-        <h2 className="mb-6">
-          Search for <span className="italic">&quot;{searchValue}&quot;</span>
-        </h2>
+        {searchValue && (
+          <h2 className="mb-6">
+            Search for <span className="italic">&quot;{searchValue}&quot;</span>
+          </h2>
+        )}
         <Await resolve={news}>
           {(loadedNews) => (
             <>
-              <List items={loadedNews} className=" w-5/6" />
+              <List items={loadedNews} className="w-5/6 " />
               {/* This is for error or not found news */}
               {!loadedNews.length && (
-                <div className="text-center flex flex-col items-center gap-12 w-80 mx-auto mt-24">
+                <div className="flex flex-col items-center gap-12 mx-auto mt-24 text-center w-80">
                   <img src={notFoundImage} />
                   <div className="flex flex-col gap-4">
                     <h3>News Not Found</h3>
