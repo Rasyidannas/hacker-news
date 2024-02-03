@@ -21,7 +21,7 @@ function LatestJob() {
           <List items={datas} />
 
           <Button
-            className="mt-6 self-center !items-start button-medium border-[2px] border-primary-50 text-primary-50 hover:bg-primary-50 hover:text-white transition-all relative"
+            className="mt-6 self-center !items-start button-medium border-[2px] border-primary-50 text-primary-50 hover:bg-primary-50 hover:text-white visited:bg-primary-50 visited:text-white active:bg-primary-50 active:text-white transition-all relative"
             onClick={loadMoreHandler}
           >
             {/* this is when loading for load more */}
