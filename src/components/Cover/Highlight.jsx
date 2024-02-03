@@ -20,7 +20,7 @@ function Highlight({ items }) {
   }, [slideNav]);
 
   return (
-    <div className="flex flex-col gap-6 mt-12 md:flex-row">
+    <div className="flex-col hidden gap-6 mt-12 md:flex md:flex-row">
       {/* Render your loaded highlight items here */}
       <div className="relative w-full overflow-x-hidden rounded-lg md:w-2/3 bg-secondary-90">
         <div
