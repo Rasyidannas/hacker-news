@@ -1,24 +1,7 @@
 import TopList from "./TopList";
 import SliderList from "./SliderList";
-import Button from "../UI/Button";
-import { useEffect, useState } from "react";
 
-function HighlightMobile({ items, className }) {
-  const [slideNav, setSildeNav] = useState(0);
-
-  const slideNavHandler = (index) => {
-    setSildeNav(index);
-  };
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setSildeNav((prevSlideNav) => (prevSlideNav + 1) % 5);
-  //   }, 8000);
-
-  //   // Clear the interval when the component unmounts
-  //   return () => clearInterval(intervalId);
-  // }, [slideNav]);
-
+function HighlightMobile({ items }) {
   return (
     <div className="flex flex-col gap-6 mt-12 md:hidden md:flex-row">
       {/* Render your loaded highlight items here */}
@@ -26,7 +9,6 @@ function HighlightMobile({ items, className }) {
         <div
           className={`flex h-full transition-all`}
           style={{
-            transform: `translateX(${slideNav * -100}%)`,
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
             overflowX: "scroll",
