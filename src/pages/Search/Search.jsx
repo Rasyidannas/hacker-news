@@ -1,16 +1,24 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import {
   Await,
   defer,
   json,
   useLoaderData,
   useSearchParams,
+  useNavigate,
 } from "react-router-dom";
 import List from "../../components/List/List";
 import notFoundImage from "../../assets/not_found.svg";
 import SkeletonItems from "../../components/Skeleton/Items";
 
 function SearchPage() {
+  const navigate = useNavigate();
+
+  //this is for redirect
+  useEffect(() => {
+    navigate("/search", { replace: true });
+  }, [navigate]);
+
   const { news } = useLoaderData();
 
   const [searchParams, setSearchParams] = useSearchParams();
