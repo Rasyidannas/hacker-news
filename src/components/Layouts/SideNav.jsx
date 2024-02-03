@@ -15,8 +15,8 @@ function SideNav({ className }) {
   };
 
   return (
-    <nav className="flex">
-      <div className="py-12 px-6 inline-flex flex-col items-center gap-12 border-r border-neutral-80">
+    <nav className="relative flex">
+      <div className="inline-flex flex-col items-center gap-12 px-6 py-12 border-r border-neutral-80">
         <Button onClick={expandHandler}>
           {!expand ? (
             <img src={menuIcon} alt="Menu Icon" />
@@ -24,19 +24,21 @@ function SideNav({ className }) {
             <img src={closeIcon} alt="Close Icon" />
           )}
         </Button>
-        <h1 className="text-orientation font-bold text-6xl">HACKER</h1>
-        <a href="/" className="w-12 h-12">
-          <img
-            src={yCombinatorLogo}
-            className="w-full"
-            alt="Y Combinator Logo"
-          />
+        <a href="/" className="flex flex-col items-center gap-6">
+          <h1 className="text-6xl font-bold text-orientation">HACKER</h1>
+          <div className="w-12 h-12">
+            <img
+              src={yCombinatorLogo}
+              className="w-full"
+              alt="Y Combinator Logo"
+            />
+          </div>
+          <h1 className="text-6xl font-bold text-orientation">NEWS</h1>
         </a>
-        <h1 className="text-orientation font-bold text-6xl">NEWS</h1>
       </div>
       {/* Expanded Item */}
       <div
-        className={`px-12 py-32 h-full z-50 left-full top-0 bg-neutral-100 border-r border-neutral-80 flex flex-col gap-12 ${
+        className={`absolute expanded__nav px-12 py-32 h-full z-50 left-full top-0 bg-neutral-100 border-r border-neutral-80 flex flex-col gap-12 ${
           !expand && "hidden"
         }`}
       >

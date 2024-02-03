@@ -7,18 +7,18 @@ function RootLayout() {
     <>
       <main className="flex">
         <SideNav className="w-1/12" />
-        <section className="pt-12 px-6 min-w-[70%] w-full flex flex-col">
+        <section className="pt-12 px-6 min-w-[75%] md:min-w-[60%] w-full flex flex-col">
           <Header />
           <Outlet />
         </section>
       </main>
-      <footer className="button-text py-6 px-24 bg-secondary-90 flex justify-between">
+      <footer className="flex flex-col justify-between px-24 py-6 text-center sm:flex-row button-text bg-secondary-90">
         <a href="https://github.com/Rasyidannas">
           <p className="text-neutral-70">
             Design by <span className="text-white">Rasyid Annas</span>
           </p>
         </a>
-        <ul className="flex gap-6">
+        <ul className="flex flex-row flex-wrap justify-center gap-6 mt-8 sm:flex-nowrap sm:mt-0">
           <li>
             <a
               href="https://news.ycombinator.com/newsguidelines.html"

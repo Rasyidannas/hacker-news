@@ -7,11 +7,11 @@
 @layer base {
   html {
     /* 1rem = 16px */
-    @apply text-[100%];
+    @apply text-[65%] md:text-[90%] lg:text-[100%] sm:text-[75%];
   }
 
   body {
-    @apply bg-neutral-100 font-sans text-white;
+    @apply font-sans text-white bg-neutral-100;
   }
 
   h1 {
@@ -62,10 +62,16 @@
   }
 
   .nav-link-active {
-    @apply text-primary-50 font-serif font-bold text-4xl;
+    @apply font-serif text-4xl font-bold text-primary-50;
   }
 
   .nav-link {
-    @apply text-neutral-70 font-serif font-bold text-4xl;
+    @apply font-serif text-4xl font-bold text-neutral-70;
+  }
+
+  @media (min-width: 960px) {
+    .expanded__nav {
+      position: unset !important;
+    }
   }
 }

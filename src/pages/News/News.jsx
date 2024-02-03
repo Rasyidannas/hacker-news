@@ -11,7 +11,7 @@ function NewsPage() {
   }, [navigate]);
 
   return (
-    <div className="mt-12 flex-auto flex gap-6">
+    <div className="flex flex-col flex-auto gap-6 mt-12 md:flex-row">
       <InnerNav
         links={[
           { to: "/news/topnews", text: "top news" },

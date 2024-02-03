@@ -22,11 +22,11 @@ const dayName = listDay[day];
 
 function Header() {
   return (
-    <div className="flex justify-between items-center ">
-      <h5 className=" text-neutral-50 italic font-normal">
+    <div className="flex flex-row flex-wrap items-start justify-between sm:flex-nowrap md:items-center ">
+      <h5 className="mb-6 mr-4 italic font-normal sm:mb-0 text-neutral-50">
         {dayName} {dates}/{formattedmonth}/{year}
       </h5>
-      <Form method="get" action="/search">
+      <Form method="get" action="/search" className="flex justify-end ml-auto">
         <TextField
           className="text-white"
           input={{

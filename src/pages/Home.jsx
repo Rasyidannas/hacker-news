@@ -1,6 +1,7 @@
 import { defer, json, useLoaderData, Await } from "react-router-dom";
 import { Suspense } from "react";
 import Highlight from "../components/Cover/Highlight";
+import HighlightMobile from "../components/Cover/HighlightMobile";
 import RecentList from "../components/Cover/RecentList";
 import SkeletonHome from "../components/Skeleton/Home";
 
@@ -11,9 +12,14 @@ function HomePage() {
     <Suspense fallback={<SkeletonHome />}>
       <div className="flex flex-col gap-6">
         <Await resolve={news}>
-          {(loadedTopNews) => <Highlight items={loadedTopNews} />}
+          {(loadedTopNews) => (
+            <>
+              <HighlightMobile items={loadedTopNews} />
+              <Highlight items={loadedTopNews} />
+            </>
+          )}
         </Await>
-        <div className="w-full h-[1px] border-b border-neutral-80"></div>
+        <div className="hidden md:block w-full h-[1px] border-b border-neutral-80"></div>
         <Await resolve={shows}>
           {(loadRecentShow) => <RecentList items={loadRecentShow} />}
         </Await>
