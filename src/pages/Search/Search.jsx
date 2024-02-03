@@ -56,10 +56,10 @@ export default SearchPage;
 
 //Fetch API
 async function fetchSearchProduct(searchValue) {
-  let url = "http://hn.algolia.com/api/v1/search";
+  let url = "https://hn.algolia.com/api/v1/search";
 
   if (searchValue) {
-    url = "http://hn.algolia.com/api/v1/search?query=" + searchValue;
+    url = "https://hn.algolia.com/api/v1/search?query=" + searchValue;
   }
 
   const response = await fetch(url);
